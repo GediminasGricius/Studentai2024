@@ -32,3 +32,5 @@ Route::get('/student/{id}/edit',[StudentController::class,'edit'])->name('studen
 Route::post('/student/{id}/save',[StudentController::class,'save'])->name('student.save');
 
 Route::get('/student/{id}/delete', [StudentController::class, 'delete'])->name('student.delete');
+
+Route::get();
