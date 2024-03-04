@@ -31,8 +31,15 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('student.create') }}">Pridėti naują studentą</a>
+                            <a class="nav-link" href="{{ route('student.index') }}">Studentai</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('lecturers.index') }}">Dėstytojai</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('courses.index') }}">Kursai</a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
