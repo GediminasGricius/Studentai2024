@@ -40,6 +40,14 @@
                             <a class="nav-link" href="{{ route('courses.index') }}">Kursai</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('setLanguage','LT') }}">LT</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('setLanguage','EN') }}">EN</a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -84,6 +92,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+        Suisiekite tel.: [[tel]]
     </div>
 </body>
 </html>

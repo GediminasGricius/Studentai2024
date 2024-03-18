@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class StudentController extends Controller
 {
+
     public function create(){
         return view("student.create");
     }
@@ -20,7 +22,7 @@ class StudentController extends Controller
         return redirect()->route('student.index');
     }
 
-    public function index(){
+    public function index(Request $request){
 
         return view('student.index',
         [

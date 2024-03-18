@@ -9,9 +9,9 @@
                       <table class="table">
                           <thead>
                           <tr>
-                              <th>Vardas</th>
-                              <th>Pavardė</th>
-                              <th>Telefonas</th>
+                              <th>{{ __("Vardas") }}</th>
+                              <th>{{ __("Pavardė") }}</th>
+                              <th>{{ __("Telefonas") }}</th>
                               <th></th>
                           </tr>
                           </thead>

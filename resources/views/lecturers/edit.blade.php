@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Redaguojamas  dėstytojas
+                        {{ __('Redaguojamas  dėstytojas') }}
                     </div>
                     <div class="card-body">
                         <form method="post" action="{{ route('lecturers.update', $lecturer) }}">

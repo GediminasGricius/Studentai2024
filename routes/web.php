@@ -23,17 +23,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/student/create', [StudentController::class,'create'])->name('student.create');
-Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
+Route::resource('lecturers', LecturerController::class)->only([
+    'index'
+]);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('lecturers', LecturerController::class)->except(['index']);
+
+
+    Route::resource('courses', CourseController::class);
+    Route::get('/student/create', [StudentController::class,'create'])->name('student.create');
+    Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
+    Route::get('/student/{id}/edit',[StudentController::class,'edit'])->name('student.edit')->middleware('adult');
+    Route::post('/student/{id}/save',[StudentController::class,'save'])->name('student.save');
+
+    Route::get('/student/{id}/delete', [StudentController::class, 'delete'])->name('student.delete');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('setlanguage/{lang}', [\App\Http\Controllers\LanguageController::class,'setLanguage'])->name('setLanguage');
 
 Route::get('/students', [StudentController::class,'index'])->name('student.index');
 
-Route::get('/student/{id}/edit',[StudentController::class,'edit'])->name('student.edit');
-Route::post('/student/{id}/save',[StudentController::class,'save'])->name('student.save');
 
-Route::get('/student/{id}/delete', [StudentController::class, 'delete'])->name('student.delete');
 
-Route::resource('lecturers', LecturerController::class);
-Route::resource('courses', CourseController::class);
