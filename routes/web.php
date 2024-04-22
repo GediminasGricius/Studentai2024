@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/student/{id}/save',[StudentController::class,'save'])->name('student.save');
 
     Route::get('/student/{id}/delete', [StudentController::class, 'delete'])->name('student.delete');
+    Route::get('/student/{id}/document',[StudentController::class, 'document'])->name('student.document');
+    Route::get('/student/{id}/documentDelete',[StudentController::class, 'documentDelete'])->name('student.documentDelete');
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

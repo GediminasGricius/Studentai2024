@@ -12,6 +12,7 @@
                               <th>{{ __("Vardas") }}</th>
                               <th>{{ __("Pavardė") }}</th>
                               <th>{{ __("Telefonas") }}</th>
+                              <th>{{ __("Dokumentai") }}</th>
                               <th></th>
                           </tr>
                           </thead>
@@ -21,6 +22,11 @@
                               <td>{{ $student->name }}</td>
                               <td>{{ $student->surname }}</td>
                               <td>{{ $student->phone }}</td>
+                              <td>
+                                  @if ($student->document_file!=null)
+                                  <a href="{{  route('student.document', $student->id) }}" class="btn btn-primary" target="_blank">Atsiusti</a>
+                                  @endif
+                              </td>
                               <td>
                                   <a class="btn btn-info" href="{{ route('student.edit', $student->id) }}">Redaguoti</a>
                                   <a class="btn btn-danger" href="{{ route('student.delete', $student->id) }}">Ištrinti</a>

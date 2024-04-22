@@ -4,6 +4,7 @@
     "Pavardė": "Surname",
     "Dalykai": "Subject",
     "Telefonas": "Phone",
-    "Redaguojamas  dėstytojas": "Edit lecturer"
+    "Redaguojamas  dėstytojas": "Edit lecturer",
+    "Vardas yra privalomas ir turi būti nuo 3 iki 16 simbolių": "Name is required and must by from 3 to 16 characters"
 
 }
