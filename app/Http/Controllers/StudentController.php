@@ -37,7 +37,11 @@ class StudentController extends Controller
         ]);
     }
 
-    public function edit($id){
+    public function edit($id, Request $request)
+    {
+        if (! $request->user()->can('edit-student')){
+            return redirect()->route('student.index');
+        }
         $student=Student::find($id);
         return view('student.edit',
             [
@@ -46,7 +50,9 @@ class StudentController extends Controller
     }
 
     public function save($id, StudentRequest $request){
-
+        if (! $request->user()->can('edit-student')){
+            return redirect()->route('student.index');
+        }
 
 
 
@@ -70,7 +76,10 @@ class StudentController extends Controller
         return redirect()->route('student.index');
     }
 
-    public function delete($id){
+    public function delete($id, Request $request){
+        if (! $request->user()->can('delete-student')){
+            return redirect()->route('student.index');
+        }
         Student::destroy($id);
         return redirect()->route('student.index');
     }

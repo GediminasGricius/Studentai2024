@@ -25,18 +25,24 @@
                               <td>
                                   @foreach( $lecturer->courses as $course)
                                       {{ $course->title }} <br>
+
+
                                   @endforeach
                               </td>
                               <td style="width: 100px;">
-                                  <a href="{{ route('lecturers.edit', $lecturer) }}" class="btn btn-success">Redaguoti</a>
+                                  @can('update', $lecturer)
 
+                                  <a href="{{ route('lecturers.edit', $lecturer) }}" class="btn btn-success">Redaguoti</a>
+                                  @endcan
                               </td>
                               <td style="width: 100px;">
+
                                  <form method="post" action="{{ route('lecturers.destroy', $lecturer) }}">
                                      @csrf
                                      @method("delete")
                                      <button class="btn btn-danger">Ištrinti</button>
                                  </form>
+
 
                               </td>
                           </tr>

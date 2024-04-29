@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\App;
 
 class LecturerController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Lecturer::class,'lecturer');
+    }
+
     /**
      * Display a listing of the resource.
      */

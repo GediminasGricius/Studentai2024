@@ -28,8 +28,16 @@
                                   @endif
                               </td>
                               <td>
-                                  <a class="btn btn-info" href="{{ route('student.edit', $student->id) }}">Redaguoti</a>
-                                  <a class="btn btn-danger" href="{{ route('student.delete', $student->id) }}">Ištrinti</a>
+
+
+                                  @can('edit-student')
+                                      <a class="btn btn-info" href="{{ route('student.edit', $student->id) }}">Redaguoti</a>
+
+                                  @endcan
+
+                                  @can('delete-student')
+                                      <a class="btn btn-danger" href="{{ route('student.delete', $student->id) }}">Ištrinti</a>
+                                  @endcan
                               </td>
                           </tr>
                           @endforeach
